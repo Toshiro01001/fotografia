@@ -71,8 +71,8 @@ async function testarTela(browser, tela) {
   await page.waitForTimeout(1400);
   await capturar(page, "capa-" + tela.nome);
   await verificarLayout(page, "abertura");
-  const fotoOk = await page.evaluate(() => { const i = document.querySelector(".hero-foto"); return i && i.complete && i.naturalWidth === 1600; });
-  ok(fotoOk, "hero: foto carregada com 1600px de largura");
+  const fotoOk = await page.evaluate(() => { const i = document.querySelector(".hero-foto"); return i && i.complete && i.naturalWidth === 1620; });
+  ok(fotoOk, "hero: foto carregada com 1620px de largura");
 
   // Função 1: portfólio com filtro e visor em tela cheia
   ok((await page.locator("#grade-fotos .foto-item:not([hidden])").count()) === 12, "portfólio: 12 fotos no início");

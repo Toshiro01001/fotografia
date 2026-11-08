@@ -49,7 +49,7 @@ Estudo completo em [docs/identidade.md](docs/identidade.md). Resumo:
 - **Paleta:** Breu `#111214` (fundo), Chumbo `#1C1E22` (superfícies), Grafite `#3B3F46` (bordas), Papel fotográfico `#EDEAE4` (texto), Prata `#A6A9AF` (texto de apoio) e Luz de segurança `#FF5A36` (o único destaque, um por tela).
 - **Fontes:** Bodoni Moda (títulos e números grandes, com o tamanho óptico no máximo para as serifas virarem fio) e Manrope (texto e interface). Ambas locais, SIL OFL.
 - **Por quê:** escolhi o fundo escuro de sala de revelação, não o branco de galeria, porque em site de fotógrafo a única coisa que pode brilhar é a foto. A luz vermelha de sala escura é a cor mais específica do universo da fotografia; o grão fino sobre a página inteira é o detalhe que dá nome ao estúdio. Fugi do preto com dourado e da letra cursiva de convite de casamento: o itálico da Bodoni em uma palavra por título faz o papel editorial.
-- **Imagem forte:** uma fotografia no hero, em contêiner 3:2. A imagem atual em `img/hero.webp` é provisória, gerada em código nas cores da identidade; o prompt para a foto definitiva está em `docs/identidade.md`.
+- **Imagem forte:** uma fotografia no hero, em contêiner 3:2. A imagem em `img/hero.webp` é uma foto gerada por IA no Canva (1620x1080), feita a partir do prompt da seção "Foto do hero" de `docs/identidade.md`. As fotos do portfólio continuam provisórias.
 
 ## Como funciona por dentro
 
