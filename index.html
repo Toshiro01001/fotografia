@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <title>Grão Fotografia | Fotografias que envelhecem bem</title>
+  <meta name="description" content="Site de demonstração de um estúdio de fotografia fictício em Cuiabá: portfólio com filtro e visualização em tela cheia, montador de pacote com preço na hora, calendário de datas disponíveis com pré-reserva simulada e pedido de orçamento. Feito pela Mil e Uma Linhas!.">
+  <meta name="theme-color" content="#111214">
+  <link rel="canonical" href="https://toshiro01001.github.io/fotografia/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/bodoni-moda-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+  <p class="faixa-demo">Demonstração da <a href="https://mileumalinhas.com.br">Mil e Uma Linhas!</a> com dados fictícios: estúdio, equipe, fotos, datas e preços são inventados.</p>
+
+  <header class="topo">
+    <div class="miolo topo-miolo">
+      <a class="marca" href="#inicio" aria-label="Grão Fotografia, início">
+        <svg class="marca-sinal" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <circle cx="16" cy="16" r="14.5" fill="none" stroke="#EDEAE4" stroke-width="1.5"/>
+          <circle cx="16" cy="16" r="8" fill="#EDEAE4"/>
+          <circle cx="19.5" cy="12.5" r="2.2" fill="#111214"/>
+        </svg>
+        <span class="marca-nome">Grão <em>Fotografia</em></span>
+      </a>
+      <button class="menu-botao" id="menu-botao" type="button" aria-expanded="false" aria-controls="menu">
+        <span class="menu-botao-traco" aria-hidden="true"></span>
+        <span class="menu-botao-texto">Menu</span>
+      </button>
+      <nav class="menu" id="menu" aria-label="Seções do site">
+        <ul>
+          <li><a href="#portfolio">Portfólio</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#pacote">Montar pacote</a></li>
+          <li><a href="#datas">Datas</a></li>
+          <li><a href="#orcamento">Orçamento</a></li>
+          <li><a href="#como-funciona">Como isto funciona</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+
+    <!-- ABERTURA -->
+    <section class="hero" id="inicio" aria-labelledby="hero-titulo">
+      <div class="miolo hero-grade">
+        <div class="hero-texto">
+          <p class="hero-chapeu">Estúdio de fotografia em Cuiabá. Casamentos, ensaios, eventos e produto.</p>
+          <h1 id="hero-titulo">Fotografias que <em>envelhecem</em> bem.</h1>
+          <p class="hero-apoio">A gente fotografa com luz de verdade e edita com calma, para a imagem continuar bonita daqui a vinte anos. Aqui você vê o portfólio, monta um pacote com preço na hora, confere se a sua data está livre e pede um orçamento.</p>
+          <div class="hero-acoes">
+            <a class="botao botao-principal" href="#portfolio">Ver o portfólio</a>
+            <a class="botao botao-secundario" href="#pacote">Montar um pacote</a>
+          </div>
+        </div>
+        <figure class="hero-figura">
+          <img class="hero-foto" src="img/hero.webp" width="1600" height="1067" alt="Composição abstrata nas cores do estúdio: fundo quase preto com um halo vermelho de sala de revelação, círculos de luz desfocada em prata e um anel de lente ao centro." fetchpriority="high">
+        </figure>
+        <dl class="hero-fatos">
+          <div><dt>Desde</dt><dd>2014, mais de 600 trabalhos</dd></div>
+          <div><dt>Equipe</dt><dd>Dois fotógrafos, um só olhar</dd></div>
+          <div><dt>Entrega</dt><dd>Seleção em 48 horas, galeria completa no prazo combinado</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- PORTFÓLIO -->
+    <section class="secao" id="portfolio" aria-labelledby="port-titulo">
+      <div class="miolo">
+        <div class="secao-cabeca">
+          <h2 id="port-titulo">Portfólio</h2>
+          <p class="secao-frase">Escolha um tipo de trabalho para filtrar. Toque em uma foto para ver em tela cheia; depois use as setas do teclado ou arraste para o lado.</p>
+        </div>
+        <fieldset class="filtros" id="filtros">
+          <legend class="visualmente-oculto">Filtrar o portfólio por tipo</legend>
+          <label class="chip"><input type="radio" name="filtro" value="" checked><span>Todos</span></label>
+          <label class="chip"><input type="radio" name="filtro" value="casamento"><span>Casamentos</span></label>
+          <label class="chip"><input type="radio" name="filtro" value="ensaio"><span>Ensaios</span></label>
+          <label class="chip"><input type="radio" name="filtro" value="evento"><span>Eventos</span></label>
+          <label class="chip"><input type="radio" name="filtro" value="produto"><span>Produto</span></label>
+        </fieldset>
+        <p class="filtro-resumo" id="filtro-resumo" aria-live="polite">12 fotos, todos os tipos.</p>
+
+        <ul class="grade-fotos" id="grade-fotos">
+          <li class="foto-item foto-larga" data-tipo="casamento">
+            <figure>
+              <button type="button" class="foto-botao" aria-label="Abrir em tela cheia: Cerimônia na capela de Chapada">
+                <img src="img/casamento-1.webp" width="1600" height="1000" alt="Imagem provisória de casamento: dois arcos claros sobre fundo escuro." loading="eager">
+              </button>
+              <figcaption><strong>Cerimônia na capela de Chapada</strong><span>Casamento. Luz de fim de tarde entrando pela porta lateral.</span></figcaption>
+            </figure>
+          </li>
+          <li class="foto-item" data-tipo="casamento">
+            <figure>
+              <button type="button" class="foto-botao" aria-label="Abrir em tela cheia: O véu antes da entrada">
+                <img src="img/casamento-2.webp" width="800" height="1000" alt="Imagem provisória de casamento: faixas diagonais claras e uma elipse prata." loading="eager">
+              </button>
+              <figcaption><strong>O véu antes da entrada</strong><span>Casamento. Detalhe feito no corredor, sem flash.</span></figcaption>
+            </figure>
+          </li>
+          <li class="foto-item" data-tipo="ensaio">
+            <figure>
+              <button type="button" class="foto-botao" aria-label="Abrir em tela cheia: Retrato em estúdio">
+                <img src="img/ensaio-1.webp" width="800" height="1000" alt="Imagem provisória de ensaio: silhueta geométrica de um retrato em prata." loading="lazy">
+              </button>
+              <figcaption><strong>Retrato em estúdio</strong><span>Ensaio. Uma luz, um fundo, meia hora de conversa antes.</span></figcaption>
+            </figure>
+          </li>
+          <li class="foto-item" data-tipo="produto">
+            <figure>
+              <button type="button" class="foto-botao" aria-label="Abrir em tela cheia: Frasco de perfume">
+                <img src="img/produto-1.webp" width="800" height="1000" alt="Imagem provisória de produto: silhueta de um frasco em prata sobre fundo escuro." loading="lazy">
+              </button>
+              <figcaption><strong>Frasco de perfume</strong><span>Produto. Fundo escuro, reflexo controlado com cartão preto.</span></figcaption>
+            </figure>
+          </li>
+          <li class="foto-item" data-tipo="evento">
+            <figure>
+              <button type="button" class="foto-botao" aria-label="Abrir em tela cheia: Palco do congresso">
+                <img src="img/evento-1.webp" width="800" height="1000" alt="Imagem provisória de evento: triângulo de luz sobre um palco escuro." loading="lazy">
+              </button>
+              <figcaption><strong>Palco do congresso</strong><span>Evento. Cobertura de dois dias, seleção em 48 horas.</span></figcaption>
+            </figure>
+          </li>
+          <li class="foto-item foto-larga" data-tipo="ensaio">
+            <figure>
+              <button type="button" class="foto-botao" aria-label="Abrir em tela cheia: Casal na beira do rio">
+                <img src="img/ensaio-2.webp" width="1600" height="1000" alt="Imagem provisória de ensaio: horizonte com uma elipse clara acima da linha d'água." loading="lazy">
+              </button>
+              <figcaption><strong>Casal na beira do rio</strong><span>Ensaio. Ao amanhecer, no Porto.</span></figcaption>
+            </figure>
+          </li>
+          <li class="foto-item" data-tipo="casamento">
+            <figure>
+              <button type="button" class="foto-botao" aria-label="Abrir em tela cheia: Alianças sobre o convite">
+                <img src="img/casamento-3.webp" width="800" height="1000" alt="Imagem provisória de casamento: dois anéis entrelaçados em prata." loading="lazy">
+              </button>
+              <figcaption><strong>Alianças sobre o convite</strong><span>Casamento. Fotografia de detalhe com lente macro.</span></figcaption>
+            </figure>
+          </li>
+          <li class="foto-item" data-tipo="evento">
+            <figure>
+              <button type="button" class="foto-botao" aria-label="Abrir em tela cheia: Luzes da festa de 15 anos">
+                <img src="img/evento-2.webp" width="800" height="1000" alt="Imagem provisória de evento: pontos de luz desfocados em prata e vermelho." loading="lazy">
+              </button>
+              <figcaption><strong>Luzes da festa de 15 anos</strong><span>Evento. Pista cheia, lente aberta.</span></figcaption>
+            </figure>
+          </li>
+          <li class="foto-item" data-tipo="ensaio">
+            <figure>
+              <button type="button" class="foto-botao" aria-label="Abrir em tela cheia: Gestante na janela">
+                <img src="img/ensaio-3.webp" width="800" height="1000" alt="Imagem provisória de ensaio: janela de quatro vidros com luz suave." loading="lazy">
+              </button>
+              <figcaption><strong>Gestante na janela</strong><span>Ensaio. Luz natural da casa da própria família.</span></figcaption>
+            </figure>
+          </li>
+          <li class="foto-item" data-tipo="produto">
+            <figure>
+              <button type="button" class="foto-botao" aria-label="Abrir em tela cheia: Embalagem para catálogo">
+                <img src="img/produto-2.webp" width="800" height="1000" alt="Imagem provisória de produto: um cubo em perspectiva em tons de prata." loading="lazy">
+              </button>
+              <figcaption><strong>Embalagem para catálogo</strong><span>Produto. Fundo liso, três ângulos entregues em 24 horas.</span></figcaption>
+            </figure>
+          </li>
+          <li class="foto-item foto-larga" data-tipo="evento">
+            <figure>
+              <button type="button" class="foto-botao" aria-label="Abrir em tela cheia: Plateia da formatura">
+                <img src="img/evento-3.webp" width="1600" height="1000" alt="Imagem provisória de evento: silhuetas de uma plateia diante de uma luz clara." loading="lazy">
+              </button>
+              <figcaption><strong>Plateia da formatura</strong><span>Evento. Vista do fundo do auditório no momento do juramento.</span></figcaption>
+            </figure>
+          </li>
+          <li class="foto-item" data-tipo="casamento">
+            <figure>
+              <button type="button" class="foto-botao" aria-label="Abrir em tela cheia: Primeira dança">
+                <img src="img/casamento-4.webp" width="800" height="1000" alt="Imagem provisória de casamento: faixas claras cruzadas sobre fundo escuro." loading="lazy">
+              </button>
+              <figcaption><strong>Primeira dança</strong><span>Casamento. Luz de salão, exposição longa de propósito.</span></figcaption>
+            </figure>
+          </li>
+        </ul>
+        <p class="nota">As imagens desta demonstração são provisórias, geradas em código nas cores do estúdio. No site de um estúdio real entram as fotografias dele, no mesmo lugar e tamanho.</p>
+      </div>
+    </section>
+
+    <!-- VISOR EM TELA CHEIA -->
+    <dialog class="visor" id="visor" aria-labelledby="visor-titulo">
+      <div class="visor-barra">
+        <p class="visor-contador" id="visor-contador" aria-live="polite">1 de 12</p>
+        <button type="button" class="visor-fechar" id="visor-fechar" aria-label="Fechar a foto em tela cheia">Fechar</button>
+      </div>
+      <div class="visor-palco" id="visor-palco">
+        <button type="button" class="visor-seta visor-anterior" id="visor-anterior" aria-label="Foto anterior">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <img class="visor-foto" id="visor-foto" src="img/casamento-1.webp" alt="" width="1600" height="1000">
+        <button type="button" class="visor-seta visor-proxima" id="visor-proxima" aria-label="Próxima foto">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <div class="visor-legenda">
+        <p class="visor-titulo" id="visor-titulo">Cerimônia na capela de Chapada</p>
+        <p class="visor-texto" id="visor-texto">Casamento. Luz de fim de tarde entrando pela porta lateral.</p>
+        <p class="visor-dica">Setas do teclado para mudar, Esc para fechar. No celular, arraste para o lado.</p>
+      </div>
+    </dialog>
+
+    <!-- SERVIÇOS -->
+    <section class="secao" id="servicos" aria-labelledby="serv-titulo">
+      <div class="miolo">
+        <div class="secao-cabeca">
+          <h2 id="serv-titulo">O que a gente fotografa</h2>
+          <p class="secao-frase">Quatro tipos de trabalho, cada um com o que está incluído. O botão leva para o montador já com o tipo escolhido.</p>
+        </div>
+        <ul class="servicos">
+          <li class="servico">
+            <h3>Casamentos</h3>
+            <p>Da preparação à última música. Duas pessoas fotografando quando a festa passa de 150 convidados. Inclui 300 fotos editadas e a galeria on-line para a família baixar.</p>
+            <p class="servico-preco">A partir de R$ 3.000 (4 horas)</p>
+            <button type="button" class="botao botao-secundario" data-tipo-pacote="casamento">Montar pacote de casamento</button>
+          </li>
+          <li class="servico">
+            <h3>Ensaios</h3>
+            <p>Casal, gestante, família ou retrato para trabalho. Em estúdio ou em um lugar da cidade que faça sentido para você. Inclui 40 fotos editadas.</p>
+            <p class="servico-preco">A partir de R$ 650 (1 hora)</p>
+            <button type="button" class="botao botao-secundario" data-tipo-pacote="ensaio">Montar pacote de ensaio</button>
+          </li>
+          <li class="servico">
+            <h3>Eventos</h3>
+            <p>Formaturas, aniversários, lançamentos e congressos. Uma seleção em 48 horas para as redes e o restante no prazo combinado. Inclui 120 fotos editadas.</p>
+            <p class="servico-preco">A partir de R$ 1.400 (2 horas)</p>
+            <button type="button" class="botao botao-secundario" data-tipo-pacote="evento">Montar pacote de evento</button>
+          </li>
+          <li class="servico">
+            <h3>Produto</h3>
+            <p>Fundo branco para catálogo ou cena montada para campanha. Preço por hora de estúdio, com tratamento de cor incluído. Inclui 30 fotos editadas.</p>
+            <p class="servico-preco">A partir de R$ 700 (1 hora)</p>
+            <button type="button" class="botao botao-secundario" data-tipo-pacote="produto">Montar pacote de produto</button>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- MONTADOR DE PACOTE -->
+    <section class="secao secao-painel" id="pacote" aria-labelledby="pac-titulo">
+      <div class="miolo">
+        <div class="secao-cabeca">
+          <h2 id="pac-titulo">Monte o seu pacote</h2>
+          <p class="secao-frase">Ajuste horas, fotos editadas, álbum e segundo fotógrafo. O valor muda na hora. É uma simulação com preços fictícios; o orçamento de verdade sai depois da conversa.</p>
+        </div>
+        <form class="montador" id="montador" aria-label="Montador de pacote">
+          <div class="montador-campos">
+            <div class="campo">
+              <label for="pac-tipo">Tipo de trabalho</label>
+              <select id="pac-tipo" name="tipo">
+                <option value="casamento" selected>Casamento</option>
+                <option value="ensaio">Ensaio</option>
+                <option value="evento">Evento</option>
+                <option value="produto">Fotografia de produto</option>
+              </select>
+            </div>
+            <div class="campo campo-faixa">
+              <label for="pac-horas">Horas de cobertura <output id="pac-horas-valor" for="pac-horas">8 horas</output></label>
+              <input type="range" id="pac-horas" name="horas" min="4" max="12" step="1" value="8">
+              <p class="campo-ajuda" id="pac-horas-ajuda">Casamento: de 4 a 12 horas.</p>
+            </div>
+            <div class="campo campo-faixa">
+              <label for="pac-fotos">Fotos editadas <output id="pac-fotos-valor" for="pac-fotos">300 fotos</output></label>
+              <input type="range" id="pac-fotos" name="fotos" min="300" max="1000" step="50" value="300">
+              <p class="campo-ajuda" id="pac-fotos-ajuda">300 já estão incluídas. Cada foto a mais custa R$ 6.</p>
+            </div>
+            <div class="campo">
+              <label for="pac-album">Álbum impresso</label>
+              <select id="pac-album" name="album">
+                <option value="nenhum" selected>Sem álbum (galeria on-line)</option>
+                <option value="pequeno">Álbum 20x20 cm, 30 páginas (R$ 890)</option>
+                <option value="grande">Álbum 30x30 cm, 40 páginas (R$ 1.490)</option>
+              </select>
+            </div>
+            <div class="campo campo-caixas">
+              <label class="caixa"><input type="checkbox" id="pac-segundo" name="segundo"><span>Segundo fotógrafo (R$ 250 por hora)</span></label>
+              <label class="caixa"><input type="checkbox" id="pac-deslocamento" name="deslocamento"><span>Fora de Cuiabá e Várzea Grande (R$ 350 de deslocamento)</span></label>
+            </div>
+            <div class="campo">
+              <label for="pac-vezes">Parcelar em</label>
+              <select id="pac-vezes" name="vezes">
+                <option value="1">1 vez</option>
+                <option value="3">3 vezes</option>
+                <option value="6" selected>6 vezes</option>
+                <option value="10">10 vezes</option>
+              </select>
+            </div>
+          </div>
+          <div class="montador-resultado" aria-live="polite">
+            <p class="resultado-rotulo">Valor estimado</p>
+            <p class="resultado-total" id="pac-total">R$ 4.800</p>
+            <p class="resultado-parcela" id="pac-parcela">ou 6 vezes de R$ 800,00 sem juros</p>
+            <dl class="resultado-linhas" id="pac-linhas"></dl>
+            <p class="resultado-prazo" id="pac-prazo">Entrega da galeria completa em até 45 dias.</p>
+            <button type="button" class="botao botao-claro" id="pac-levar">Levar este pacote para o orçamento</button>
+            <p class="nota">Simulação. Nenhum valor é cobrado e nada sai do seu aparelho.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- DATAS -->
+    <section class="secao" id="datas" aria-labelledby="datas-titulo">
+      <div class="miolo">
+        <div class="secao-cabeca">
+          <h2 id="datas-titulo">A sua data está livre?</h2>
+          <p class="secao-frase">Navegue pelos meses e toque em um dia. Dias livres podem receber uma pré-reserva de 48 horas, sem compromisso, enquanto a gente conversa. A agenda aqui é simulada.</p>
+        </div>
+        <div class="datas-grade">
+          <div class="calendario" id="calendario">
+            <div class="cal-cabeca">
+              <button type="button" class="cal-nav" id="cal-anterior" aria-label="Mês anterior">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <p class="cal-mes" id="cal-mes" aria-live="polite">Novembro de 2026</p>
+              <button type="button" class="cal-nav" id="cal-proximo" aria-label="Próximo mês">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+            <div class="cal-semana" aria-hidden="true">
+              <span>D</span><span>S</span><span>T</span><span>Q</span><span>Q</span><span>S</span><span>S</span>
+            </div>
+            <div class="cal-grade" id="cal-grade" role="group" aria-label="Dias do mês"></div>
+            <ul class="cal-legenda" aria-label="Legenda do calendário">
+              <li><span class="cal-amostra livre" aria-hidden="true"></span>Livre</li>
+              <li><span class="cal-amostra ocupado" aria-hidden="true"></span>Reservado</li>
+              <li><span class="cal-amostra pre" aria-hidden="true"></span>Sua pré-reserva</li>
+            </ul>
+          </div>
+          <div class="dia-painel" id="dia-painel">
+            <p class="dia-vazio" id="dia-vazio">Toque em um dia do calendário para ver se está livre.</p>
+            <div class="dia-detalhe" id="dia-detalhe" hidden>
+              <p class="dia-numero" id="dia-numero">14</p>
+              <p class="dia-nome" id="dia-nome">Sábado, 14 de março de 2027</p>
+              <p class="dia-estado" id="dia-estado">Livre para pré-reserva.</p>
+              <form class="pre-form" id="pre-form">
+                <div class="campo">
+                  <label for="pre-nome">Seu primeiro nome</label>
+                  <input type="text" id="pre-nome" name="nome" autocomplete="given-name" maxlength="40">
+                </div>
+                <div class="campo">
+                  <label for="pre-tipo">Tipo de trabalho</label>
+                  <select id="pre-tipo" name="tipo">
+                    <option value="casamento">Casamento</option>
+                    <option value="ensaio">Ensaio</option>
+                    <option value="evento">Evento</option>
+                    <option value="produto">Fotografia de produto</option>
+                  </select>
+                </div>
+                <label class="caixa"><input type="checkbox" id="pre-guardar" name="guardar"><span>Guardar minhas pré-reservas neste navegador. Fica só neste aparelho; quem usar o mesmo navegador vê o nome e a data.</span></label>
+                <p class="erro" id="pre-erro" role="alert" hidden></p>
+                <button type="submit" class="botao botao-principal" id="pre-confirmar">Pré-reservar esta data</button>
+              </form>
+              <div class="pre-feito" id="pre-feito" hidden>
+                <p>Pré-reserva feita por 48 horas. Nada foi enviado: a confirmação de verdade acontece pela conversa com o estúdio.</p>
+                <button type="button" class="botao botao-secundario" id="pre-orcar">Pedir orçamento para esta data</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="minhas-pre" id="minhas-pre" hidden>
+          <h3>Suas pré-reservas</h3>
+          <ul id="minhas-lista"></ul>
+          <button type="button" class="botao-texto" id="minhas-apagar">Apagar todas</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ORÇAMENTO -->
+    <section class="secao secao-painel" id="orcamento" aria-labelledby="orc-titulo">
+      <div class="miolo">
+        <div class="secao-cabeca">
+          <h2 id="orc-titulo">Peça um orçamento</h2>
+          <p class="secao-frase">Preencha o que souber. O formulário confere os campos e mostra um resumo na tela; nesta demonstração nada é enviado.</p>
+        </div>
+        <form class="orcamento" id="orcamento-form" novalidate>
+          <div class="orcamento-campos">
+            <div class="campo">
+              <label for="orc-nome">Nome</label>
+              <input type="text" id="orc-nome" name="nome" autocomplete="name" required>
+              <p class="erro" id="orc-nome-erro" hidden></p>
+            </div>
+            <div class="campo">
+              <label for="orc-email">E-mail</label>
+              <input type="email" id="orc-email" name="email" autocomplete="email" required inputmode="email">
+              <p class="erro" id="orc-email-erro" hidden></p>
+            </div>
+            <div class="campo">
+              <label for="orc-fone">Telefone com DDD</label>
+              <input type="tel" id="orc-fone" name="fone" autocomplete="tel" inputmode="tel" placeholder="65 99999 0000">
+              <p class="erro" id="orc-fone-erro" hidden></p>
+            </div>
+            <div class="campo">
+              <label for="orc-tipo">Tipo de trabalho</label>
+              <select id="orc-tipo" name="tipo">
+                <option value="casamento">Casamento</option>
+                <option value="ensaio">Ensaio</option>
+                <option value="evento">Evento</option>
+                <option value="produto">Fotografia de produto</option>
+              </select>
+            </div>
+            <div class="campo">
+              <label for="orc-data">Data pretendida</label>
+              <input type="date" id="orc-data" name="data">
+              <p class="erro" id="orc-data-erro" hidden></p>
+            </div>
+            <div class="campo">
+              <label for="orc-local">Cidade ou local</label>
+              <input type="text" id="orc-local" name="local" autocomplete="address-level2" placeholder="Cuiabá">
+            </div>
+            <div class="campo campo-largo">
+              <label for="orc-msg">Conte como imagina as fotos <span class="opcional">(opcional)</span></label>
+              <textarea id="orc-msg" name="mensagem" rows="4" maxlength="600"></textarea>
+            </div>
+            <div class="campo campo-largo">
+              <label class="caixa"><input type="checkbox" id="orc-ciente" name="ciente" required><span>Entendi que este site é uma demonstração e que nenhum dado será enviado.</span></label>
+              <p class="erro" id="orc-ciente-erro" hidden></p>
+            </div>
+          </div>
+          <aside class="orcamento-pacote" id="orc-pacote" aria-live="polite">
+            <p class="resultado-rotulo">Pacote anexado</p>
+            <p id="orc-pacote-texto">Nenhum ainda. Monte um pacote acima e toque em "Levar este pacote para o orçamento".</p>
+          </aside>
+          <div class="orcamento-acoes">
+            <p class="erro" id="orc-erro" role="alert" hidden></p>
+            <button type="submit" class="botao botao-principal">Ver o resumo do pedido</button>
+          </div>
+        </form>
+        <div class="resumo" id="orc-resumo" hidden tabindex="-1">
+          <h3>Resumo do seu pedido</h3>
+          <p>É isto que o estúdio receberia. Nesta demonstração, o resumo fica só na sua tela.</p>
+          <dl id="orc-resumo-lista"></dl>
+          <button type="button" class="botao botao-secundario" id="orc-novo">Editar o pedido</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- O ESTÚDIO -->
+    <section class="secao" id="estudio" aria-labelledby="est-titulo">
+      <div class="miolo estudio-grade">
+        <div class="secao-cabeca">
+          <h2 id="est-titulo">O estúdio</h2>
+          <p class="secao-frase">Quem fotografa, onde estamos e como falar com a gente.</p>
+        </div>
+        <dl class="ficha">
+          <div><dt>Helena Vilar</dt><dd>Fotógrafa principal. Casamentos e ensaios. Fotografa desde 2014, revela filme em casa aos domingos.</dd></div>
+          <div><dt>Caio Monteiro</dt><dd>Fotógrafo. Eventos e fotografia de produto. Cuida da luz de estúdio e da entrega em 48 horas.</dd></div>
+          <div><dt>Endereço</dt><dd>Rua da Prata, 404, Bairro do Porto, Cuiabá, MT. Endereço fictício.</dd></div>
+          <div><dt>Horário</dt><dd>Terça a sábado, 9h às 19h. Eventos em qualquer dia.</dd></div>
+          <div><dt>Contato</dt><dd>(65) 3000-0404 e ola@grao.exemplo. Telefone e e-mail inventados.</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- COMO ISTO FUNCIONA -->
+    <section class="secao secao-painel" id="como-funciona" aria-labelledby="como-titulo">
+      <div class="miolo como-grade">
+        <div class="secao-cabeca">
+          <h2 id="como-titulo">Como isto funciona</h2>
+          <p class="secao-frase">Este site é uma demonstração da Mil e Uma Linhas!. Aqui explicamos o que ele faz, em três níveis.</p>
+        </div>
+        <div class="como-texto">
+          <h3>Para quem só quer usar</h3>
+          <p>Você vê as fotos do estúdio por tipo e abre cada uma em tela cheia. Monta um pacote mexendo em horas, fotos e álbum e vê o preço mudar. Confere no calendário se a sua data está livre e segura uma pré-reserva. Preenche o pedido de orçamento e confere o resumo. Tudo isso funciona no celular e no computador, sem instalar nada.</p>
+          <h3>Como funciona por dentro</h3>
+          <p>O site é um conjunto de arquivos que o navegador baixa uma vez e roda sozinho. Os preços são uma tabela simples: valor base do tipo de trabalho, mais horas, mais fotos além das incluídas, mais álbum e extras. O calendário usa uma regra fixa para "sortear" os dias reservados, por isso a agenda é a mesma para todo mundo e muda de acordo com o dia da semana (sábado quase sempre cheio). As pré-reservas e o pedido ficam só no seu aparelho; nada é enviado a servidor nenhum. No site de um estúdio real, o pedido iria por e-mail ou WhatsApp e a agenda viria do sistema do estúdio.</p>
+          <details class="detalhes-tecnicos">
+            <summary>Detalhes técnicos</summary>
+            <ul>
+              <li>HTML, CSS e JavaScript puros. Sem framework, sem biblioteca, sem CDN, sem fonte externa, sem analytics.</li>
+              <li><code>Content-Security-Policy</code> por <code>meta</code>: <code>default-src 'self'</code>, sem script inline, sem estilo inline, <code>connect-src 'none'</code>, <code>form-action 'none'</code>.</li>
+              <li>Portfólio: a grade é HTML estático com <code>data-tipo</code>; o filtro é um grupo de <code>radio</code> e o JavaScript só alterna o atributo <code>hidden</code>. A grade usa <code>grid-auto-flow: dense</code> para fechar buracos.</li>
+              <li>Tela cheia: elemento nativo <code>&lt;dialog&gt;</code> com <code>showModal()</code>, que já prende o foco e fecha com Esc. Setas do teclado e arraste por <code>pointerdown</code>/<code>pointerup</code> mudam a foto.</li>
+              <li>Montador: cálculo em <code>js/app.js</code> a partir da tabela em <code>js/dados.js</code>; formatação com <code>Intl.NumberFormat("pt-BR")</code>.</li>
+              <li>Calendário: função de dispersão determinística sobre a string da data decide se o dia está reservado; as pré-reservas ficam em memória e, se a pessoa marcar a caixa, em <code>localStorage</code> na chave <code>grao-prereservas</code>.</li>
+              <li>Orçamento: <code>novalidate</code> no formulário e validação própria; o envio é interceptado e vira um resumo na tela.</li>
+              <li>Fontes Bodoni Moda e Manrope em <code>woff2</code> local, licença SIL OFL. Imagens em <code>webp</code> geradas com Pillow, com <code>width</code> e <code>height</code> para não pular o layout.</li>
+              <li>Testes em <code>tests/site.cjs</code> com Playwright em 1280x900, iPhone 13 e 320px.</li>
+            </ul>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="miolo rodape-miolo">
+      <p><strong>Grão Fotografia</strong>. Estúdio fictício criado para demonstração.</p>
+      <p>Site feito pela <a href="https://mileumalinhas.com.br">Mil e Uma Linhas!</a>, Cuiabá. Nenhum dado sai deste aparelho.</p>
+    </div>
+  </footer>
+
+  <script src="js/dados.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
