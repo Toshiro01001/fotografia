@@ -19,7 +19,7 @@ font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-ac
 
 ## Envio de dados
 
-Nenhum. O site não tem backend, não chama APIs, não carrega fontes, imagens ou scripts externos e não tem analytics. O único link externo é https://mileumalinhas.com.br, como texto, na faixa de demonstração e no rodapé.
+Nenhum. O site não tem backend, não chama APIs, não carrega fontes, imagens ou scripts externos e não tem analytics. O único link externo é https://mileumalinhas.com.br, como texto, no rodapé. A faixa de demonstração do topo virou um ticker decorativo (só CSS, `aria-hidden`), com o aviso completo em texto oculto para leitor de tela.
 
 ## O que fica no navegador
 
@@ -29,7 +29,7 @@ Nenhum. O site não tem backend, não chama APIs, não carrega fontes, imagens o
 
 ## Dependências
 
-Nenhuma em tempo de execução. Fontes Bodoni Moda e Manrope são arquivos `woff2` locais, licença SIL OFL, com o texto da licença em `fonts/`. As imagens foram geradas com Pillow fora do site. Os testes usam Playwright só no computador de quem desenvolve; nada dele vai para o site.
+Nenhuma em tempo de execução. Fontes Bodoni Moda e Manrope são arquivos `woff2` locais, licença SIL OFL, com o texto da licença em `fonts/`. As imagens do portfólio foram geradas com Pillow fora do site; as fotos do hero, do estúdio, da equipe, dos bastidores e do set de produto foram geradas por IA no Canva e são arquivos `webp` locais. Os efeitos de movimento são CSS e JavaScript próprios: nenhuma biblioteca, nenhum script de terceiros, CSP inalterada. O JavaScript novo só mexe em classes, `textContent` e `style.transform`/`style.transitionDelay` pelo CSSOM, que a CSP permite. Os testes usam Playwright só no computador de quem desenvolve; nada dele vai para o site.
 
 ## Dados fictícios
 

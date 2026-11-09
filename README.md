@@ -4,7 +4,7 @@ Site de demonstração de um estúdio de fotografia. Eu, Rodrigo Jr, da [Mil e U
 
 Endereço quando publicado: https://toshiro01001.github.io/fotografia/
 
-**Tudo aqui é fictício.** O estúdio Grão não existe. Fotógrafos, endereço, telefone, e-mail, preços, agenda e as "fotos" foram inventados. As imagens do portfólio são composições geradas em código, provisórias, no lugar das fotografias reais que entrariam no site de um estúdio de verdade. Nada é vendido, cobrado ou enviado; nenhum dado sai do seu aparelho.
+**Tudo aqui é fictício.** O estúdio Grão não existe. Fotógrafos, endereço, telefone, e-mail, preços, agenda e as "fotos" foram inventados. **As fotografias do hero, do estúdio, da equipe, dos bastidores e do set de produto foram geradas por IA no Canva e são ilustrativas**: não mostram pessoas nem lugares reais. As imagens do portfólio são composições geradas em código, provisórias, no lugar das fotografias reais que entrariam no site de um estúdio de verdade. Nada é vendido, cobrado ou enviado; nenhum dado sai do seu aparelho.
 
 ## Capturas
 
@@ -26,12 +26,28 @@ Endereço quando publicado: https://toshiro01001.github.io/fotografia/
 
 No celular: [tela cheia](docs/celular-visor.webp), [pacote](docs/celular-pacote.webp), [datas](docs/celular-datas.webp) e [orçamento](docs/celular-orcamento.webp).
 
+## Fotos geradas por IA (Canva)
+
+Todas ilustrativas, feitas no Canva a partir dos prompts do plano visual, com a mesma luz: fundo quase preto, luz fria lateral e um único brilho vermelho de sala de revelação.
+
+| Arquivo | Tamanho | Onde aparece |
+|---|---|---|
+| `img/hero.webp` | 1620x1080 (3:2) | Abertura |
+| `img/servico-produto-set.webp` | 1456x816 (16:9) | Cartão "Produto" em Serviços e pilha de amostras do montador |
+| `img/estudio-sala.webp` | 1456x816 (16:9) | Foto larga em "O estúdio" |
+| `img/equipe-helena.webp` | 1088x1456 (3:4) | Retrato da Helena Vilar em "O estúdio" |
+| `img/equipe-caio.webp` | 1088x1456 (3:4) | Retrato do Caio Monteiro em "O estúdio" |
+| `img/bastidores-revelacao.webp` | 1152x1440 (4:5) | Ao lado do texto de "Como isto funciona" |
+
+Para trocar uma foto, salve outra com o mesmo nome e a mesma proporção em `img/`; se o tamanho mudar, ajuste `width` e `height` da tag `<img>` no `index.html`.
+
 ## O que o site faz
 
 1. **Portfólio com filtro e tela cheia.** Toque em Casamentos, Ensaios, Eventos ou Produto e a grade mostra só aquele tipo. Toque em uma foto para abrir em tela cheia; as setas do teclado trocam a foto, Esc fecha e, no celular, dá para arrastar para o lado. O contador mostra em qual foto você está dentro do filtro escolhido.
 2. **Montador de pacote.** Escolha o tipo de trabalho e mexa nas horas de cobertura, no número de fotos editadas, no álbum impresso, no segundo fotógrafo e no deslocamento. O valor, o detalhamento linha a linha, as parcelas e o prazo de entrega mudam na hora. O botão "Levar este pacote para o orçamento" anexa a simulação ao pedido.
 3. **Datas disponíveis com pré-reserva.** Navegue pelos próximos 12 meses. Dias riscados estão reservados; os outros estão livres. Em um dia livre, escreva seu primeiro nome e segure a data por 48 horas (simulação). Se marcar a caixa, a pré-reserva fica guardada no seu navegador; dá para apagar quando quiser. O botão "Pedir orçamento para esta data" leva a data e o tipo para o formulário.
-4. **Pedido de orçamento.** O formulário confere nome, e-mail, telefone, data e a caixa de ciência, aponta cada erro ao lado do campo e, quando está tudo certo, mostra um resumo do pedido na tela, com o pacote anexado e a data pré-reservada. Nada é enviado.
+4. **Atalhos por tipo.** A faixa "Ver o portfólio por tipo de trabalho" (e os links de Serviços no rodapé) já marcam o filtro certo e levam até a grade.
+5. **Pedido de orçamento.** O formulário confere nome, e-mail, telefone, data e a caixa de ciência, aponta cada erro ao lado do campo e, quando está tudo certo, mostra um resumo do pedido na tela, com o pacote anexado e a data pré-reservada. Nada é enviado.
 
 ## Como usar
 
@@ -50,15 +66,16 @@ Estudo completo em [docs/identidade.md](docs/identidade.md). Resumo:
 - **Fontes:** Bodoni Moda (títulos e números grandes, com o tamanho óptico no máximo para as serifas virarem fio) e Manrope (texto e interface). Ambas locais, SIL OFL.
 - **Por quê:** escolhi o fundo escuro de sala de revelação, não o branco de galeria, porque em site de fotógrafo a única coisa que pode brilhar é a foto. A luz vermelha de sala escura é a cor mais específica do universo da fotografia; o grão fino sobre a página inteira é o detalhe que dá nome ao estúdio. Fugi do preto com dourado e da letra cursiva de convite de casamento: o itálico da Bodoni em uma palavra por título faz o papel editorial.
 - **Imagem forte:** uma fotografia no hero, em contêiner 3:2. A imagem em `img/hero.webp` é uma foto gerada por IA no Canva (1620x1080), feita a partir do prompt da seção "Foto do hero" de `docs/identidade.md`. As fotos do portfólio continuam provisórias.
+- **Leva final (design systems):** a superfície mistura o Lumina (fundo com grade de fios e feixes de luz que caem, vidro fosco, numerais leves, marca gigante no rodapé) com a estrutura editorial do Sable (faixa que rola no topo, menu com trilho de progresso, placas de foto, categorias, contadores, rodapé em colunas). A paleta não mudou. Lista completa em `docs/identidade.md`, seção "Design systems aplicados (leva final)".
 
 ## Como funciona por dentro
 
 O site é um conjunto de arquivos que o navegador baixa e roda sozinho, sem servidor de aplicação.
 
 - `index.html` tem todas as seções em uma página só, com âncoras no menu. A grade do portfólio é HTML comum, com `data-tipo` em cada item; o filtro só esconde e mostra.
-- `css/estilo.css` tem a identidade: cores em variáveis, as duas fontes locais, a grade do portfólio com `grid-auto-flow: dense`, o visor em tela cheia, o calendário e os formulários. O grão é uma imagem pequena repetida por cima da página, quase transparente.
+- `css/estilo.css` tem a identidade: cores em variáveis, as duas fontes locais, a grade do portfólio com `grid-auto-flow: dense`, o visor em tela cheia, o calendário e os formulários. O grão é uma imagem pequena repetida por cima da página, quase transparente. A grade de fios com os feixes de luz, a faixa que rola, a pílula que pulsa e a pilha de cartões são só CSS (transform e opacity) e param com "reduzir movimento" ligado no aparelho. O desfoque de vidro dos painéis só liga em telas de 900px para cima, para não pesar no celular.
 - `js/dados.js` tem a tabela fictícia de preços (valor base, hora, fotos incluídas, prazo) e os dados do estúdio.
-- `js/app.js` faz o resto: filtro e visor (elemento `<dialog>` nativo, com setas, Esc e arraste), cálculo do pacote, calendário com dias reservados "sorteados" por uma regra fixa (por isso a agenda é a mesma para todo mundo), pré-reservas e validação do orçamento.
+- `js/app.js` faz o resto: trilho de progresso no menu (atualizado uma vez por quadro durante a rolagem), contadores que sobem quando aparecem, revelação dos blocos ao rolar (com `IntersectionObserver`), atalhos de categoria que marcam o filtro, passo ativo e pilha de amostras do montador, filtro e visor (elemento `<dialog>` nativo, com setas, Esc e arraste), cálculo do pacote, calendário com dias reservados "sorteados" por uma regra fixa (por isso a agenda é a mesma para todo mundo), pré-reservas e validação do orçamento.
 
 ## Detalhes técnicos
 

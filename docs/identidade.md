@@ -85,3 +85,37 @@ Prompt para gerar no Canva (em português):
 > Fotografia editorial de estúdio, estilo site premium de fotógrafo. Uma câmera analógica de médio formato antiga, metálica e preta, vista de três quartos, apoiada sobre uma mesa de madeira escura, ao lado de três rolos de filme fotográfico e uma lupa de contato. Luz lateral suave vinda da esquerda com um leve brilho vermelho alaranjado de lâmpada de sala de revelação (cor #FF5A36) tocando a borda da câmera. Fundo quase preto, cor #111214, liso, com leve degradê. Profundidade de campo rasa, foco na lente da câmera, pontos de luz desfocados ao fundo em tom prata. Grão fino de filme, cores dessaturadas, sem texto, sem pessoas, sem logotipos legíveis. Proporção 3:2, horizontal.
 
 Alternativa, se a câmera ficar com cara de banco de imagens: uma tira de negativos 35mm pendurada por um prendedor de madeira em uma sala escura, com a luz vermelha ao fundo e o mesmo fundo #111214.
+
+## Design systems aplicados (leva final)
+
+**Dupla:** Lumina (escuro, sistema de produtora e criador de conteúdo) + Sable (claro, lookbook de moda), escolhidos porque o laranja do Lumina é praticamente a nossa Luz de segurança e porque a gramática editorial do Sable (placas de foto, ticker, rodapé em colunas) combina com a Bodoni Moda.
+
+**Como misturei:** a página continua inteira escura, então o Lumina manda no fundo e nas superfícies: grade vertical de cinco colunas com fios de Papel a 5% e feixes que caem, vidro fosco nos painéis, numerais leves e a marca gigante no rodapé. O Sable entra como estrutura editorial com as cores invertidas (o osso dele vira Papel, a tinta vira Breu): ticker no topo, navegação com trilho de progresso, placas de foto, categorias, contadores e rodapé em colunas. O laranja do Lumina e o fio do Sable viram sempre Luz de segurança. A paleta, as fontes e o raio de 4px não mudaram.
+
+**Componentes e onde estão:**
+
+| Componente | Origem | Onde |
+|---|---|---|
+| Grade vertical com feixes que caem (6 s, 8 s e 7 s) | Lumina | `div.grade-feixes`, fundo fixo atrás de todas as seções, limitado a 1280px. Só CSS. |
+| Pílula de vidro com ponto pulsando | Lumina | `p.hero-chapeu` e `p#filtro-resumo` (classe `pilula-vidro`). |
+| Grade de estatísticas em numeral leve | Lumina | `dl.hero-fatos`; o 600 conta de 0 a 600 uma vez. |
+| Cartão de mídia (foto 16:9, disco de vidro, badge) | Lumina | `li.servico` em Serviços; o badge de preço acende em Luz de segurança só no cartão em foco. |
+| Lista de passos com pilha de cartões | Lumina | `#montador-passos` (passos numerados, o ativo com borda Luz) e `#pilha` no resultado do montador (três amostras trocam de lugar com mola de 0,6 s ao mudar o tipo). |
+| Vidro fosco com borda em gradiente | Lumina | Resultado do montador, pacote anexado, resumo do orçamento e painel do dia. O desfoque de 24px só liga a partir de 900px, para poupar o celular. |
+| Marca gigante no rodapé (17vw, entrelinha 0,75) | Lumina | `p.rodape-marca` "GRÃO". |
+| Ticker de anúncio (34 s, pausa no hover) | Sable | `p.faixa-demo` no topo; o texto completo do aviso fica em `visualmente-oculto` para leitor de tela. |
+| Navegação sticky de vidro com trilho de progresso | Sable | `header.topo` com `#prog`; a partir de 1100px a marca fica no centro e os links dos dois lados. |
+| Placas de foto | Sable | `.foto-botao` no portfólio e `#visor-foto`; Chumbo antes da imagem, zoom 1.05 no hover, etiqueta de tipo em pílula. |
+| Categorias sobre tinta | Sable | `div.categorias` entre Portfólio e Serviços; foto em preto e branco que ganha cor, seta que anda 6px, o clique marca o filtro. |
+| Contadores que sobem | Sable | `dl.estudio-numeros` em O estúdio (600, 12, 48), quando 60% visíveis. |
+| Rodapé em colunas 1.6fr 1fr 1fr 1fr | Sable | `footer.rodape`, duas colunas no celular. |
+| Revelação ao rolar | Sable | Fotos, serviços, calendário, orçamento e ficha do estúdio sobem 18px com fade. |
+
+**Fotos novas (geradas por IA no Canva, ilustrativas):** `img/estudio-sala.webp` (16:9), `img/equipe-helena.webp` e `img/equipe-caio.webp` (3:4), `img/bastidores-revelacao.webp` (4:5) e `img/servico-produto-set.webp` (16:9). Os prompts estão no plano da leva final; todas seguem a mesma luz: fundo Breu, luz fria lateral e um único brilho de Luz de segurança.
+
+**Desvios conscientes do plano:**
+
+- Legendas das categorias e dos contadores: o plano pedia Prata a 60% e a 50%, que ficariam abaixo de 4,5:1 sobre o Breu. Usei Papel a 60% nas frases das categorias (cerca de 6,5:1) e Prata cheia nas legendas dos contadores.
+- "11 anos" virou **12 anos**: o estúdio existe desde 2014 e a página é de 2026.
+- A regra antiga "nenhum rótulo em caixa alta" agora tem três exceções vindas do Sable: títulos das categorias, chapéus pequenos (com espaçamento largo) e títulos das colunas do rodapé.
+- O movimento deixou de ser "um único momento orquestrado": entram os feixes, o ticker, a revelação ao rolar, os contadores e a pilha. Tudo desliga com `prefers-reduced-motion: reduce`.

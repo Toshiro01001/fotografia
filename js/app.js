@@ -38,6 +38,12 @@
   }
   $$("#filtros input").forEach((r) => r.addEventListener("change", () => aplicarFiltro(r.value)));
 
+  /* ---------- Categorias e rodapé: atalhos que marcam o filtro ---------- */
+  $$("[data-filtro]").forEach((a) => a.addEventListener("click", () => {
+    const radio = $("#filtros input[value='" + a.dataset.filtro + "']");
+    if (radio && !radio.checked) { radio.checked = true; aplicarFiltro(radio.value); }
+  }));
+
   /* ---------- Portfólio: visor em tela cheia ---------- */
   const visor = $("#visor");
   const visorFoto = $("#visor-foto");
@@ -115,7 +121,43 @@
   const pacVezes = $("#pac-vezes");
   let pacoteAtual = null;
 
+  /* Pilha de cartões de amostra: a carta de trás vem para a frente quando o tipo muda */
+  const AMOSTRAS = {
+    casamento: ["casamento-1", "casamento-3", "casamento-4"],
+    ensaio: ["ensaio-2", "ensaio-1", "ensaio-3"],
+    evento: ["evento-3", "evento-1", "evento-2"],
+    produto: ["servico-produto-set", "produto-1", "produto-2"]
+  };
+  const POSICOES = ["pilha-frente", "pilha-meio", "pilha-fundo"];
+  let cartoes = $$("#pilha .pilha-cartao");
+  let tipoPilha = "casamento";
+  function atualizarPilha(tipo) {
+    if (!cartoes.length || tipo === tipoPilha) { return; }
+    tipoPilha = tipo;
+    cartoes = [cartoes[2], cartoes[0], cartoes[1]];
+    cartoes.forEach((c, i) => {
+      c.classList.remove(...POSICOES);
+      c.classList.add(POSICOES[i]);
+      const img = $("img", c);
+      const nome = AMOSTRAS[tipo][i];
+      if (!img.getAttribute("src").endsWith(nome + ".webp")) { img.src = "img/" + nome + ".webp"; }
+      $(".pilha-rotulo", c).textContent = DADOS.tipos[tipo].nome;
+    });
+  }
+
+  /* Passo ativo do montador: borda em Luz de segurança no passo que a pessoa está mexendo */
+  const passos = $$("#montador-passos > .campo");
+  function ativarPasso(passo) {
+    passos.forEach((p) => p.classList.toggle("passo-ativo", p === passo));
+  }
+  passos.forEach((p) => {
+    p.addEventListener("focusin", () => ativarPasso(p));
+    p.addEventListener("pointerdown", () => ativarPasso(p));
+  });
+  if (passos.length) { ativarPasso(passos[0]); }
+
   function ajustarFaixas(tipo) {
+    atualizarPilha(tipo);
     const t = DADOS.tipos[tipo];
     pacHoras.min = t.horasMinimas;
     pacHoras.max = t.horasMaximas;
@@ -444,6 +486,62 @@
 
   function prefereMenosMovimento() {
     return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  }
+
+  /* ---------- Trilho de progresso da rolagem ---------- */
+  const trilho = $("#prog");
+  let trilhoPendente = false;
+  function desenharTrilho() {
+    trilhoPendente = false;
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    trilho.style.transform = "scaleX(" + (max > 0 ? Math.min(1, window.scrollY / max) : 0).toFixed(4) + ")";
+  }
+  if (trilho) {
+    window.addEventListener("scroll", () => { if (!trilhoPendente) { trilhoPendente = true; requestAnimationFrame(desenharTrilho); } }, { passive: true });
+    window.addEventListener("resize", desenharTrilho, { passive: true });
+    desenharTrilho();
+  }
+
+  /* ---------- Contadores que sobem (0 até o valor em 1,1 s, uma vez) ---------- */
+  function contar(el) {
+    const alvo = Number(el.dataset.contar);
+    if (!alvo || prefereMenosMovimento()) { return; }
+    const inicio = performance.now();
+    const duracao = 1100;
+    el.textContent = "0";
+    function passo(agora) {
+      const p = Math.min(1, (agora - inicio) / duracao);
+      el.textContent = String(Math.round(alvo * (1 - Math.pow(1 - p, 3))));
+      if (p < 1) { requestAnimationFrame(passo); }
+    }
+    requestAnimationFrame(passo);
+  }
+  const contadores = $$("[data-contar]");
+  if ("IntersectionObserver" in window && contadores.length) {
+    const obsContar = new IntersectionObserver((entradas) => {
+      entradas.forEach((e) => { if (e.isIntersecting) { obsContar.unobserve(e.target); contar(e.target); } });
+    }, { threshold: 0.6 });
+    contadores.forEach((c) => obsContar.observe(c));
+  }
+
+  /* ---------- Revelação ao rolar: sobe 18px com fade, 60 ms entre irmãos ---------- */
+  const revelaveis = $$("#grade-fotos .foto-item, .servicos .servico, .calendario, .orcamento, .ficha");
+  if ("IntersectionObserver" in window && !prefereMenosMovimento()) {
+    const obsRevelar = new IntersectionObserver((entradas) => {
+      const visiveis = entradas.filter((e) => e.isIntersecting);
+      visiveis.forEach((e, i) => {
+        e.target.style.transitionDelay = (i * 60) + "ms";
+        e.target.classList.add("revelado");
+        obsRevelar.unobserve(e.target);
+      });
+    }, { threshold: 0.15 });
+    revelaveis.forEach((el) => {
+      const r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight && r.bottom > 0) { return; }
+      el.classList.add("revelar");
+      el.addEventListener("transitionend", () => { el.style.transitionDelay = ""; }, { once: true });
+      obsRevelar.observe(el);
+    });
   }
 
   /* ---------- Início ---------- */

@@ -30,6 +30,8 @@ async function verificarLayout(page, nome) {
     document.querySelectorAll("body *").forEach((e) => {
       if (!e.offsetParent && e.tagName !== "BODY") { return; }
       if (e.closest("dialog")) { return; }
+      // o trilho do ticker é mais largo que a tela de propósito e fica recortado pela faixa (overflow: hidden)
+      if (e.closest("[data-rolante]")) { return; }
       const r = e.getBoundingClientRect();
       if (r.width <= 1 || r.height <= 1) { return; }
       if (r.right > larguraJanela + 1 && getComputedStyle(e).position !== "fixed") {

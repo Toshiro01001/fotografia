@@ -16,9 +16,20 @@
 <body>
   <a class="pular" href="#conteudo">Pular para o conteúdo</a>
 
-  <p class="faixa-demo">Demonstração da <a href="https://mileumalinhas.com.br">Mil e Uma Linhas!</a> com dados fictícios: estúdio, equipe, fotos, datas e preços são inventados.</p>
+  <div class="grade-feixes" aria-hidden="true">
+    <div class="grade-feixes-miolo">
+      <span class="feixe-coluna"></span>
+      <span class="feixe-coluna"><i class="feixe feixe-1"></i></span>
+      <span class="feixe-coluna"><i class="feixe feixe-2"></i></span>
+      <span class="feixe-coluna"></span>
+      <span class="feixe-coluna"><i class="feixe feixe-3"></i></span>
+    </div>
+  </div>
+
+  <p class="faixa-demo"><span class="visualmente-oculto">Demonstração da Mil e Uma Linhas! com dados fictícios: estúdio, equipe, datas e preços são inventados; as fotos foram geradas por IA e são ilustrativas.</span><span class="faixa-trilho" aria-hidden="true" data-rolante><span class="faixa-run"><span>Demonstração da Mil e Uma Linhas!</span><i>/</i><span>Estúdio fictício</span><i>/</i><span>Agenda simulada</span><i>/</i><span>Equipe, fotos e preços inventados</span><i>/</i><span>Fotografias que envelhecem bem</span><i>/</i><span>Demonstração da Mil e Uma Linhas!</span><i>/</i><span>Estúdio fictício</span><i>/</i><span>Agenda simulada</span><i>/</i><span>Equipe, fotos e preços inventados</span><i>/</i><span>Fotografias que envelhecem bem</span><i>/</i></span><span class="faixa-run"><span>Demonstração da Mil e Uma Linhas!</span><i>/</i><span>Estúdio fictício</span><i>/</i><span>Agenda simulada</span><i>/</i><span>Equipe, fotos e preços inventados</span><i>/</i><span>Fotografias que envelhecem bem</span><i>/</i><span>Demonstração da Mil e Uma Linhas!</span><i>/</i><span>Estúdio fictício</span><i>/</i><span>Agenda simulada</span><i>/</i><span>Equipe, fotos e preços inventados</span><i>/</i><span>Fotografias que envelhecem bem</span><i>/</i></span></span></p>
 
   <header class="topo">
+    <div class="trilho-progresso" id="prog" aria-hidden="true"></div>
     <div class="miolo topo-miolo">
       <a class="marca" href="#inicio" aria-label="Grão Fotografia, início">
         <svg class="marca-sinal" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
@@ -51,7 +62,7 @@
     <section class="hero" id="inicio" aria-labelledby="hero-titulo">
       <div class="miolo hero-grade">
         <div class="hero-texto">
-          <p class="hero-chapeu">Estúdio de fotografia em Cuiabá. Casamentos, ensaios, eventos e produto.</p>
+          <p class="hero-chapeu pilula-vidro">Estúdio de fotografia em Cuiabá. Casamentos, ensaios, eventos e produto.</p>
           <h1 id="hero-titulo">Fotografias que <em>envelhecem</em> bem.</h1>
           <p class="hero-apoio">A gente fotografa com luz de verdade e edita com calma, para a imagem continuar bonita daqui a vinte anos. Aqui você vê o portfólio, monta um pacote com preço na hora, confere se a sua data está livre e pede um orçamento.</p>
           <div class="hero-acoes">
@@ -63,9 +74,9 @@
           <img class="hero-foto" src="img/hero.webp" width="1620" height="1080" alt="Câmera de fotografia sobre mesa de trabalho em luz suave, com a lente em primeiro plano." fetchpriority="high">
         </figure>
         <dl class="hero-fatos">
-          <div><dt>Desde</dt><dd>2014, mais de 600 trabalhos</dd></div>
-          <div><dt>Equipe</dt><dd>Dois fotógrafos, um só olhar</dd></div>
-          <div><dt>Entrega</dt><dd>Seleção em 48 horas, galeria completa no prazo combinado</dd></div>
+          <div><dt>trabalhos entregues desde 2014</dt><dd><span data-contar="600">600</span></dd></div>
+          <div><dt>fotógrafos, um só olhar</dt><dd>2</dd></div>
+          <div><dt>para a seleção; a galeria completa sai no prazo combinado</dt><dd>48 h</dd></div>
         </dl>
       </div>
     </section>
@@ -85,13 +96,14 @@
           <label class="chip"><input type="radio" name="filtro" value="evento"><span>Eventos</span></label>
           <label class="chip"><input type="radio" name="filtro" value="produto"><span>Produto</span></label>
         </fieldset>
-        <p class="filtro-resumo" id="filtro-resumo" aria-live="polite">12 fotos, todos os tipos.</p>
+        <p class="filtro-resumo pilula-vidro" id="filtro-resumo" aria-live="polite">12 fotos, todos os tipos.</p>
 
         <ul class="grade-fotos" id="grade-fotos">
           <li class="foto-item foto-larga" data-tipo="casamento">
             <figure>
               <button type="button" class="foto-botao" aria-label="Abrir em tela cheia: Cerimônia na capela de Chapada">
-                <img src="img/casamento-1.webp" width="1600" height="1000" alt="Imagem provisória de casamento: dois arcos claros sobre fundo escuro." loading="eager">
+                <span class="foto-etiqueta" aria-hidden="true">Casamento</span>
+                <img src="img/casamento-1.webp" width="1600" height="1000" alt="Imagem provisória de casamento: dois arcos claros sobre fundo escuro." loading="eager" decoding="async">
               </button>
               <figcaption><strong>Cerimônia na capela de Chapada</strong><span>Casamento. Luz de fim de tarde entrando pela porta lateral.</span></figcaption>
             </figure>
@@ -99,7 +111,8 @@
           <li class="foto-item" data-tipo="casamento">
             <figure>
               <button type="button" class="foto-botao" aria-label="Abrir em tela cheia: O véu antes da entrada">
-                <img src="img/casamento-2.webp" width="800" height="1000" alt="Imagem provisória de casamento: faixas diagonais claras e uma elipse prata." loading="eager">
+                <span class="foto-etiqueta" aria-hidden="true">Casamento</span>
+                <img src="img/casamento-2.webp" width="800" height="1000" alt="Imagem provisória de casamento: faixas diagonais claras e uma elipse prata." loading="eager" decoding="async">
               </button>
               <figcaption><strong>O véu antes da entrada</strong><span>Casamento. Detalhe feito no corredor, sem flash.</span></figcaption>
             </figure>
@@ -107,7 +120,8 @@
           <li class="foto-item" data-tipo="ensaio">
             <figure>
               <button type="button" class="foto-botao" aria-label="Abrir em tela cheia: Retrato em estúdio">
-                <img src="img/ensaio-1.webp" width="800" height="1000" alt="Imagem provisória de ensaio: silhueta geométrica de um retrato em prata." loading="lazy">
+                <span class="foto-etiqueta" aria-hidden="true">Ensaio</span>
+                <img src="img/ensaio-1.webp" width="800" height="1000" alt="Imagem provisória de ensaio: silhueta geométrica de um retrato em prata." loading="lazy" decoding="async">
               </button>
               <figcaption><strong>Retrato em estúdio</strong><span>Ensaio. Uma luz, um fundo, meia hora de conversa antes.</span></figcaption>
             </figure>
@@ -115,7 +129,8 @@
           <li class="foto-item" data-tipo="produto">
             <figure>
               <button type="button" class="foto-botao" aria-label="Abrir em tela cheia: Frasco de perfume">
-                <img src="img/produto-1.webp" width="800" height="1000" alt="Imagem provisória de produto: silhueta de um frasco em prata sobre fundo escuro." loading="lazy">
+                <span class="foto-etiqueta" aria-hidden="true">Produto</span>
+                <img src="img/produto-1.webp" width="800" height="1000" alt="Imagem provisória de produto: silhueta de um frasco em prata sobre fundo escuro." loading="lazy" decoding="async">
               </button>
               <figcaption><strong>Frasco de perfume</strong><span>Produto. Fundo escuro, reflexo controlado com cartão preto.</span></figcaption>
             </figure>
@@ -123,7 +138,8 @@
           <li class="foto-item" data-tipo="evento">
             <figure>
               <button type="button" class="foto-botao" aria-label="Abrir em tela cheia: Palco do congresso">
-                <img src="img/evento-1.webp" width="800" height="1000" alt="Imagem provisória de evento: triângulo de luz sobre um palco escuro." loading="lazy">
+                <span class="foto-etiqueta" aria-hidden="true">Evento</span>
+                <img src="img/evento-1.webp" width="800" height="1000" alt="Imagem provisória de evento: triângulo de luz sobre um palco escuro." loading="lazy" decoding="async">
               </button>
               <figcaption><strong>Palco do congresso</strong><span>Evento. Cobertura de dois dias, seleção em 48 horas.</span></figcaption>
             </figure>
@@ -131,7 +147,8 @@
           <li class="foto-item foto-larga" data-tipo="ensaio">
             <figure>
               <button type="button" class="foto-botao" aria-label="Abrir em tela cheia: Casal na beira do rio">
-                <img src="img/ensaio-2.webp" width="1600" height="1000" alt="Imagem provisória de ensaio: horizonte com uma elipse clara acima da linha d'água." loading="lazy">
+                <span class="foto-etiqueta" aria-hidden="true">Ensaio</span>
+                <img src="img/ensaio-2.webp" width="1600" height="1000" alt="Imagem provisória de ensaio: horizonte com uma elipse clara acima da linha d'água." loading="lazy" decoding="async">
               </button>
               <figcaption><strong>Casal na beira do rio</strong><span>Ensaio. Ao amanhecer, no Porto.</span></figcaption>
             </figure>
@@ -139,7 +156,8 @@
           <li class="foto-item" data-tipo="casamento">
             <figure>
               <button type="button" class="foto-botao" aria-label="Abrir em tela cheia: Alianças sobre o convite">
-                <img src="img/casamento-3.webp" width="800" height="1000" alt="Imagem provisória de casamento: dois anéis entrelaçados em prata." loading="lazy">
+                <span class="foto-etiqueta" aria-hidden="true">Casamento</span>
+                <img src="img/casamento-3.webp" width="800" height="1000" alt="Imagem provisória de casamento: dois anéis entrelaçados em prata." loading="lazy" decoding="async">
               </button>
               <figcaption><strong>Alianças sobre o convite</strong><span>Casamento. Fotografia de detalhe com lente macro.</span></figcaption>
             </figure>
@@ -147,7 +165,8 @@
           <li class="foto-item" data-tipo="evento">
             <figure>
               <button type="button" class="foto-botao" aria-label="Abrir em tela cheia: Luzes da festa de 15 anos">
-                <img src="img/evento-2.webp" width="800" height="1000" alt="Imagem provisória de evento: pontos de luz desfocados em prata e vermelho." loading="lazy">
+                <span class="foto-etiqueta" aria-hidden="true">Evento</span>
+                <img src="img/evento-2.webp" width="800" height="1000" alt="Imagem provisória de evento: pontos de luz desfocados em prata e vermelho." loading="lazy" decoding="async">
               </button>
               <figcaption><strong>Luzes da festa de 15 anos</strong><span>Evento. Pista cheia, lente aberta.</span></figcaption>
             </figure>
@@ -155,7 +174,8 @@
           <li class="foto-item" data-tipo="ensaio">
             <figure>
               <button type="button" class="foto-botao" aria-label="Abrir em tela cheia: Gestante na janela">
-                <img src="img/ensaio-3.webp" width="800" height="1000" alt="Imagem provisória de ensaio: janela de quatro vidros com luz suave." loading="lazy">
+                <span class="foto-etiqueta" aria-hidden="true">Ensaio</span>
+                <img src="img/ensaio-3.webp" width="800" height="1000" alt="Imagem provisória de ensaio: janela de quatro vidros com luz suave." loading="lazy" decoding="async">
               </button>
               <figcaption><strong>Gestante na janela</strong><span>Ensaio. Luz natural da casa da própria família.</span></figcaption>
             </figure>
@@ -163,7 +183,8 @@
           <li class="foto-item" data-tipo="produto">
             <figure>
               <button type="button" class="foto-botao" aria-label="Abrir em tela cheia: Embalagem para catálogo">
-                <img src="img/produto-2.webp" width="800" height="1000" alt="Imagem provisória de produto: um cubo em perspectiva em tons de prata." loading="lazy">
+                <span class="foto-etiqueta" aria-hidden="true">Produto</span>
+                <img src="img/produto-2.webp" width="800" height="1000" alt="Imagem provisória de produto: um cubo em perspectiva em tons de prata." loading="lazy" decoding="async">
               </button>
               <figcaption><strong>Embalagem para catálogo</strong><span>Produto. Fundo liso, três ângulos entregues em 24 horas.</span></figcaption>
             </figure>
@@ -171,7 +192,8 @@
           <li class="foto-item foto-larga" data-tipo="evento">
             <figure>
               <button type="button" class="foto-botao" aria-label="Abrir em tela cheia: Plateia da formatura">
-                <img src="img/evento-3.webp" width="1600" height="1000" alt="Imagem provisória de evento: silhuetas de uma plateia diante de uma luz clara." loading="lazy">
+                <span class="foto-etiqueta" aria-hidden="true">Evento</span>
+                <img src="img/evento-3.webp" width="1600" height="1000" alt="Imagem provisória de evento: silhuetas de uma plateia diante de uma luz clara." loading="lazy" decoding="async">
               </button>
               <figcaption><strong>Plateia da formatura</strong><span>Evento. Vista do fundo do auditório no momento do juramento.</span></figcaption>
             </figure>
@@ -179,7 +201,8 @@
           <li class="foto-item" data-tipo="casamento">
             <figure>
               <button type="button" class="foto-botao" aria-label="Abrir em tela cheia: Primeira dança">
-                <img src="img/casamento-4.webp" width="800" height="1000" alt="Imagem provisória de casamento: faixas claras cruzadas sobre fundo escuro." loading="lazy">
+                <span class="foto-etiqueta" aria-hidden="true">Casamento</span>
+                <img src="img/casamento-4.webp" width="800" height="1000" alt="Imagem provisória de casamento: faixas claras cruzadas sobre fundo escuro." loading="lazy" decoding="async">
               </button>
               <figcaption><strong>Primeira dança</strong><span>Casamento. Luz de salão, exposição longa de propósito.</span></figcaption>
             </figure>
@@ -211,6 +234,55 @@
       </div>
     </dialog>
 
+    <!-- CATEGORIAS: atalhos que marcam o filtro do portfólio -->
+    <div class="categorias">
+      <div class="miolo">
+        <p class="categorias-chapeu">Ver o portfólio por tipo de trabalho</p>
+        <ul class="categorias-lista">
+          <li>
+            <a class="categoria" href="#portfolio" data-filtro="casamento">
+              <span class="categoria-foto"><img src="img/casamento-2.webp" width="800" height="1000" alt="" loading="lazy" decoding="async"></span>
+              <span class="categoria-texto">
+                <span class="categoria-titulo">Casamentos</span>
+                <span class="categoria-frase">Da preparação à última música.</span>
+                <span class="categoria-ir">Ver <i aria-hidden="true">→</i></span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a class="categoria" href="#portfolio" data-filtro="ensaio">
+              <span class="categoria-foto"><img src="img/ensaio-1.webp" width="800" height="1000" alt="" loading="lazy" decoding="async"></span>
+              <span class="categoria-texto">
+                <span class="categoria-titulo">Ensaios</span>
+                <span class="categoria-frase">Casal, gestante, família, retrato.</span>
+                <span class="categoria-ir">Ver <i aria-hidden="true">→</i></span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a class="categoria" href="#portfolio" data-filtro="evento">
+              <span class="categoria-foto"><img src="img/evento-2.webp" width="800" height="1000" alt="" loading="lazy" decoding="async"></span>
+              <span class="categoria-texto">
+                <span class="categoria-titulo">Eventos</span>
+                <span class="categoria-frase">Formaturas, festas e congressos.</span>
+                <span class="categoria-ir">Ver <i aria-hidden="true">→</i></span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a class="categoria" href="#portfolio" data-filtro="produto">
+              <span class="categoria-foto"><img src="img/produto-1.webp" width="800" height="1000" alt="" loading="lazy" decoding="async"></span>
+              <span class="categoria-texto">
+                <span class="categoria-titulo">Produto</span>
+                <span class="categoria-frase">Catálogo em fundo branco ou cena.</span>
+                <span class="categoria-ir">Ver <i aria-hidden="true">→</i></span>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
     <!-- SERVIÇOS -->
     <section class="secao" id="servicos" aria-labelledby="serv-titulo">
       <div class="miolo">
@@ -220,28 +292,52 @@
         </div>
         <ul class="servicos">
           <li class="servico">
-            <h3>Casamentos</h3>
-            <p>Da preparação à última música. Duas pessoas fotografando quando a festa passa de 150 convidados. Inclui 300 fotos editadas e a galeria on-line para a família baixar.</p>
-            <p class="servico-preco">A partir de R$ 3.000 (4 horas)</p>
-            <button type="button" class="botao botao-secundario" data-tipo-pacote="casamento">Montar pacote de casamento</button>
+            <figure class="servico-midia">
+              <img src="img/casamento-1.webp" width="1600" height="1000" alt="Imagem provisória de casamento: dois arcos claros sobre fundo escuro." loading="lazy" decoding="async">
+              <span class="servico-disco" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4 8h3l1.6-2.2h6.8L17 8h3v11H4z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="12" cy="13.2" r="3.4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span>
+            </figure>
+            <div class="servico-corpo">
+              <h3>Casamentos</h3>
+              <p>Da preparação à última música. Duas pessoas fotografando quando a festa passa de 150 convidados. Inclui 300 fotos editadas e a galeria on-line para a família baixar.</p>
+              <p class="servico-preco">A partir de R$ 3.000 (4 horas)</p>
+              <button type="button" class="botao botao-secundario" data-tipo-pacote="casamento">Montar pacote de casamento</button>
+            </div>
           </li>
           <li class="servico">
-            <h3>Ensaios</h3>
-            <p>Casal, gestante, família ou retrato para trabalho. Em estúdio ou em um lugar da cidade que faça sentido para você. Inclui 40 fotos editadas.</p>
-            <p class="servico-preco">A partir de R$ 650 (1 hora)</p>
-            <button type="button" class="botao botao-secundario" data-tipo-pacote="ensaio">Montar pacote de ensaio</button>
+            <figure class="servico-midia">
+              <img src="img/ensaio-2.webp" width="1600" height="1000" alt="Imagem provisória de ensaio: horizonte com uma elipse clara acima da linha d'água." loading="lazy" decoding="async">
+              <span class="servico-disco" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4 8h3l1.6-2.2h6.8L17 8h3v11H4z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="12" cy="13.2" r="3.4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span>
+            </figure>
+            <div class="servico-corpo">
+              <h3>Ensaios</h3>
+              <p>Casal, gestante, família ou retrato para trabalho. Em estúdio ou em um lugar da cidade que faça sentido para você. Inclui 40 fotos editadas.</p>
+              <p class="servico-preco">A partir de R$ 650 (1 hora)</p>
+              <button type="button" class="botao botao-secundario" data-tipo-pacote="ensaio">Montar pacote de ensaio</button>
+            </div>
           </li>
           <li class="servico">
-            <h3>Eventos</h3>
-            <p>Formaturas, aniversários, lançamentos e congressos. Uma seleção em 48 horas para as redes e o restante no prazo combinado. Inclui 120 fotos editadas.</p>
-            <p class="servico-preco">A partir de R$ 1.400 (2 horas)</p>
-            <button type="button" class="botao botao-secundario" data-tipo-pacote="evento">Montar pacote de evento</button>
+            <figure class="servico-midia">
+              <img src="img/evento-3.webp" width="1600" height="1000" alt="Imagem provisória de evento: silhuetas de uma plateia diante de uma luz clara." loading="lazy" decoding="async">
+              <span class="servico-disco" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4 8h3l1.6-2.2h6.8L17 8h3v11H4z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="12" cy="13.2" r="3.4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span>
+            </figure>
+            <div class="servico-corpo">
+              <h3>Eventos</h3>
+              <p>Formaturas, aniversários, lançamentos e congressos. Uma seleção em 48 horas para as redes e o restante no prazo combinado. Inclui 120 fotos editadas.</p>
+              <p class="servico-preco">A partir de R$ 1.400 (2 horas)</p>
+              <button type="button" class="botao botao-secundario" data-tipo-pacote="evento">Montar pacote de evento</button>
+            </div>
           </li>
           <li class="servico">
-            <h3>Produto</h3>
-            <p>Fundo branco para catálogo ou cena montada para campanha. Preço por hora de estúdio, com tratamento de cor incluído. Inclui 30 fotos editadas.</p>
-            <p class="servico-preco">A partir de R$ 700 (1 hora)</p>
-            <button type="button" class="botao botao-secundario" data-tipo-pacote="produto">Montar pacote de produto</button>
+            <figure class="servico-midia">
+              <img src="img/servico-produto-set.webp" width="1456" height="816" alt="Mesa de fotografia de produto com fundo branco contínuo, um frasco de vidro âmbar sob um softbox e um cartão preto de controle de reflexo, em estúdio escuro." loading="lazy" decoding="async">
+              <span class="servico-disco" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4 8h3l1.6-2.2h6.8L17 8h3v11H4z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="12" cy="13.2" r="3.4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span>
+            </figure>
+            <div class="servico-corpo">
+              <h3>Produto</h3>
+              <p>Fundo branco para catálogo ou cena montada para campanha. Preço por hora de estúdio, com tratamento de cor incluído. Inclui 30 fotos editadas.</p>
+              <p class="servico-preco">A partir de R$ 700 (1 hora)</p>
+              <button type="button" class="botao botao-secundario" data-tipo-pacote="produto">Montar pacote de produto</button>
+            </div>
           </li>
         </ul>
       </div>
@@ -255,7 +351,7 @@
           <p class="secao-frase">Ajuste horas, fotos editadas, álbum e segundo fotógrafo. O valor muda na hora. É uma simulação com preços fictícios; o orçamento de verdade sai depois da conversa.</p>
         </div>
         <form class="montador" id="montador" aria-label="Montador de pacote">
-          <div class="montador-campos">
+          <div class="montador-campos" id="montador-passos">
             <div class="campo">
               <label for="pac-tipo">Tipo de trabalho</label>
               <select id="pac-tipo" name="tipo">
@@ -298,6 +394,11 @@
             </div>
           </div>
           <div class="montador-resultado" aria-live="polite">
+            <div class="pilha" id="pilha" aria-hidden="true">
+              <figure class="pilha-cartao pilha-frente"><img src="img/casamento-1.webp" width="1600" height="1000" alt="" loading="lazy" decoding="async"><span class="pilha-rotulo">Casamento</span></figure>
+              <figure class="pilha-cartao pilha-meio"><img src="img/casamento-3.webp" width="800" height="1000" alt="" loading="lazy" decoding="async"><span class="pilha-rotulo">Casamento</span></figure>
+              <figure class="pilha-cartao pilha-fundo"><img src="img/casamento-4.webp" width="800" height="1000" alt="" loading="lazy" decoding="async"><span class="pilha-rotulo">Casamento</span></figure>
+            </div>
             <p class="resultado-rotulo">Valor estimado</p>
             <p class="resultado-total" id="pac-total">R$ 4.800</p>
             <p class="resultado-parcela" id="pac-parcela">ou 6 vezes de R$ 800,00 sem juros</p>
@@ -453,9 +554,25 @@
           <h2 id="est-titulo">O estúdio</h2>
           <p class="secao-frase">Quem fotografa, onde estamos e como falar com a gente.</p>
         </div>
+        <dl class="estudio-numeros">
+          <div><dt>trabalhos entregues</dt><dd data-contar="600">600</dd></div>
+          <div><dt>anos de estúdio</dt><dd data-contar="12">12</dd></div>
+          <div><dt>horas para a seleção</dt><dd data-contar="48">48</dd></div>
+        </dl>
+        <figure class="estudio-foto">
+          <img src="img/estudio-sala.webp" width="1456" height="816" alt="Estúdio de fotografia vazio: fundo infinito cinza, dois softboxes apagados, um banco de madeira e cabos no chão de cimento, com luz de janela e um brilho vermelho ao fundo." loading="lazy" decoding="async">
+        </figure>
         <dl class="ficha">
-          <div><dt>Helena Vilar</dt><dd>Fotógrafa principal. Casamentos e ensaios. Fotografa desde 2014, revela filme em casa aos domingos.</dd></div>
-          <div><dt>Caio Monteiro</dt><dd>Fotógrafo. Eventos e fotografia de produto. Cuida da luz de estúdio e da entrega em 48 horas.</dd></div>
+          <div class="ficha-pessoa">
+            <dt>Helena Vilar</dt>
+            <dd class="ficha-retrato"><figure><img src="img/equipe-helena.webp" width="1088" height="1456" alt="Fotógrafa vista de costas com uma câmera de médio formato na mão, diante de um fundo infinito cinza-escuro, com a luz vermelha de uma lâmpada de revelação ao fundo." loading="lazy" decoding="async"></figure></dd>
+            <dd>Fotógrafa principal. Casamentos e ensaios. Fotografa desde 2014, revela filme em casa aos domingos.</dd>
+          </div>
+          <div class="ficha-pessoa">
+            <dt>Caio Monteiro</dt>
+            <dd class="ficha-retrato"><figure><img src="img/equipe-caio.webp" width="1088" height="1456" alt="Fotógrafo de perfil ajustando um softbox em estúdio escuro, com a silhueta recortada pela luz da caixa." loading="lazy" decoding="async"></figure></dd>
+            <dd>Fotógrafo. Eventos e fotografia de produto. Cuida da luz de estúdio e da entrega em 48 horas.</dd>
+          </div>
           <div><dt>Endereço</dt><dd>Rua da Prata, 404, Bairro do Porto, Cuiabá, MT. Endereço fictício.</dd></div>
           <div><dt>Horário</dt><dd>Terça a sábado, 9h às 19h. Eventos em qualquer dia.</dd></div>
           <div><dt>Contato</dt><dd>(65) 3000-0404 e ola@grao.exemplo. Telefone e e-mail inventados.</dd></div>
@@ -485,19 +602,56 @@
               <li>Montador: cálculo em <code>js/app.js</code> a partir da tabela em <code>js/dados.js</code>; formatação com <code>Intl.NumberFormat("pt-BR")</code>.</li>
               <li>Calendário: função de dispersão determinística sobre a string da data decide se o dia está reservado; as pré-reservas ficam em memória e, se a pessoa marcar a caixa, em <code>localStorage</code> na chave <code>grao-prereservas</code>.</li>
               <li>Orçamento: <code>novalidate</code> no formulário e validação própria; o envio é interceptado e vira um resumo na tela.</li>
-              <li>Fontes Bodoni Moda e Manrope em <code>woff2</code> local, licença SIL OFL. Imagens em <code>webp</code> geradas com Pillow, com <code>width</code> e <code>height</code> para não pular o layout.</li>
+              <li>Fontes Bodoni Moda e Manrope em <code>woff2</code> local, licença SIL OFL. Imagens em <code>webp</code> com <code>width</code> e <code>height</code> para não pular o layout: as fotos do portfólio são composições provisórias geradas com Pillow; as do estúdio, da equipe, dos bastidores e do set de produto foram geradas por IA no Canva e são ilustrativas.</li>
               <li>Testes em <code>tests/site.cjs</code> com Playwright em 1280x900, iPhone 13 e 320px.</li>
             </ul>
           </details>
         </div>
+        <figure class="como-foto">
+          <img src="img/bastidores-revelacao.webp" width="1152" height="1440" alt="Tira de negativos 35mm pendurada por prendedor de madeira em sala escura, iluminada pela luz vermelha de segurança, com bandejas de revelação desfocadas ao fundo." loading="lazy" decoding="async">
+        </figure>
       </div>
     </section>
   </main>
 
   <footer class="rodape">
-    <div class="miolo rodape-miolo">
-      <p><strong>Grão Fotografia</strong>. Estúdio fictício criado para demonstração.</p>
-      <p>Site feito pela <a href="https://mileumalinhas.com.br">Mil e Uma Linhas!</a>, Cuiabá. Nenhum dado sai deste aparelho.</p>
+    <p class="rodape-marca" aria-hidden="true">GRÃO</p>
+    <div class="miolo">
+      <div class="rodape-colunas">
+        <div class="rodape-coluna rodape-estudio">
+          <p class="rodape-titulo">Grão Fotografia</p>
+          <p>Rua da Prata, 404, Bairro do Porto, Cuiabá, MT</p>
+          <p>(65) 3000-0404</p>
+          <p>ola@grao.exemplo</p>
+          <p class="rodape-aviso">Estúdio, endereço, telefone e e-mail fictícios, criados para demonstração.</p>
+        </div>
+        <nav class="rodape-coluna" aria-label="Serviços">
+          <p class="rodape-titulo">Serviços</p>
+          <ul>
+            <li><a href="#portfolio" data-filtro="casamento">Casamentos</a></li>
+            <li><a href="#portfolio" data-filtro="ensaio">Ensaios</a></li>
+            <li><a href="#portfolio" data-filtro="evento">Eventos</a></li>
+            <li><a href="#portfolio" data-filtro="produto">Produto</a></li>
+          </ul>
+        </nav>
+        <nav class="rodape-coluna" aria-label="Agenda e orçamento">
+          <p class="rodape-titulo">Agenda e orçamento</p>
+          <ul>
+            <li><a href="#pacote">Montar pacote</a></li>
+            <li><a href="#datas">Datas livres</a></li>
+            <li><a href="#orcamento">Pedir orçamento</a></li>
+          </ul>
+        </nav>
+        <nav class="rodape-coluna" aria-label="Sobre o site">
+          <p class="rodape-titulo">Como funciona</p>
+          <ul>
+            <li><a href="#como-funciona">Como isto funciona</a></li>
+            <li><a href="#estudio">O estúdio</a></li>
+            <li><a href="https://mileumalinhas.com.br">Mil e Uma Linhas!</a></li>
+          </ul>
+        </nav>
+      </div>
+      <p class="rodape-legal">© 2026 Grão Fotografia, estúdio fictício. Site feito pela <a href="https://mileumalinhas.com.br">Mil e Uma Linhas!</a>, Cuiabá. Fotos do estúdio e da equipe geradas por IA, ilustrativas. Nenhum dado sai deste aparelho.</p>
     </div>
   </footer>
 
